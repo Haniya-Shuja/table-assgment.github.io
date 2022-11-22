@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1>Multiplication Table</h1>
+
+    <form onsubmit="multi(); return false">
+
+        Enter Table Number :
+        <input type="number" id="userInput" required>
+        <br />
+        <br>
+        How many times :
+        <input type="number" id="numberInput" value="10" required>
+        <br />
+        <br>
+        <input type="submit" class="btn"></input>
+        <input type="button" onClick="window.location.reload()" value="Clear"></input>
+
+
+    </form>
+
+    <div id="result">
+        <table id="tableData">
+
+        </table>
+    </div>
+
+    <script>
+
+        function multi() {
+
+
+            let userInput = document.querySelector("#userInput").value;
+            let numberInput = document.querySelector("#numberInput").value;
+
+            console.log("NUMBER ... ", numberInput)
+
+            if (numberInput > 0) {
+
+                let table = document.getElementById("tableData");
+                table.innerHTML += `
+                 <thead> 
+                    <th>
+                        Result         
+                    </th>  
+                </thead>`
+
+                for (let i = 0; i < numberInput; i++) {
+                    let num = i + 1;
+                    table.innerHTML += `
+         
+                
+                <tr>
+                    <td>${userInput} &nbsp;  x </td>
+                    <td>${num} &nbsp;  = &nbsp; </td>
+                    <td>${num * userInput}</td>
+
+                </tr>
+        
+            `
+                    console.log(`${userInput} x ${num} = ${num * userInput}`)
+
+                }
+
+
+            }
+
+
+
+            else {
+                document.querySelector("#result").innerHTML = `Invalid Input`;
+
+            }
+            return
+        }
+
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>
+
